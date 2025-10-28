@@ -21,7 +21,7 @@
 #define TVP2 5
 
 &mt {
-    quick-tap-ms = <100>;
+    quick-tap-ms = <130>;
     flavor = "tap-preferred";
     tapping-term-ms = <170>;
 };
@@ -39,6 +39,16 @@
         delete {
             bindings = <&kp DEL>;
             key-positions = <32 34>;
+        };
+    };
+
+    behaviors {
+        td_ralt: td_ralt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_RALT";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RIGHT_ALT>, <&kp RCTRL>;
         };
     };
 
@@ -64,10 +74,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-           &kp Q  &kp W  &kp E           &kp R      &kp T            &kp Y      &kp U            &kp I      &kp O    &kp P
-           &kp A  &kp S  &kp D           &kp F      &kp G            &kp H      &kp J            &kp K      &kp L    &kp SEMICOLON
-&kp LCTRL  &kp Z  &kp X  &kp C           &kp V      &kp B            &kp N      &kp M            &kp COMMA  &kp DOT  &kp FSLH       &kp SQT
-                         &kp LEFT_SHIFT  &lt 2 RET  &kp BACKSPACE    &kp SPACE  &lt 1 RIGHT_ALT  &kp RCTRL
+           &kp Q  &kp W  &kp E           &kp R      &kp T            &kp Y      &kp U        &kp I      &kp O    &kp P
+           &kp A  &kp S  &kp D           &kp F      &kp G            &kp H      &kp J        &kp K      &kp L    &kp SEMICOLON
+&kp LCTRL  &kp Z  &kp X  &kp C           &kp V      &kp B            &kp N      &kp M        &kp COMMA  &kp DOT  &kp FSLH       &kp SQT
+                         &kp LEFT_SHIFT  &lt 2 RET  &kp BACKSPACE    &kp SPACE  &lt 1 SPACE  &td_ralt
             >;
         };
 
@@ -90,7 +100,7 @@
             bindings = <
         &kp EXCL  &kp AT  &kp HASH    &kp DLLR  &kp PRCNT    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp MINUS   &trans
         &trans    &trans  &trans      &trans    &trans       &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS    &trans
-&trans  &trans    &trans  &trans      &trans    &mo 3        &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD  &trans  &trans
+&trans  &trans    &trans  &trans      &trans    &mo 3        &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD  &trans  &kp RIGHT_GUI
                           &kp LA(F4)  &kp F5    &kp F11      &kp KP_NUMLOCK   &trans           &kp KP_NUMBER_0
             >;
         };
